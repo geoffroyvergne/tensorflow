@@ -1,7 +1,11 @@
 Start CPU only container
 
 docker run -it --rm -p 8888:8888 --name tensorflow tensorflow/tensorflow:latest-py3
-docker run -it --rm -v $PWD/notebooks:/notebooks -p 8888:8888 --name tensorflow tensorflow/tensorflow
 
-docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow:latest-py3 python ./test/script.py
+Jupyter Notebook
+docker run -it --rm -v $HOME/.keras:/root/.keras -v $PWD/notebooks:/notebooks -p 8888:8888 --name tensorflow tensorflow/tensorflow
 
+Python script
+docker run -it --rm -v $HOME/.keras:/root/.keras -v $PWD:/workspace -w /workspace tensorflow/tensorflow:latest-py3 python ./test/script.py
+
+./run.sh ./test/script.py
