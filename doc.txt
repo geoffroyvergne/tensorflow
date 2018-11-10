@@ -1,3 +1,19 @@
+
+PIP :
+virtualenv venv
+virtualenv -p /usr/bin/python2.7 venv
+
+virtualenv --system-site-packages -p python2 ./venv
+source ./venv/bin/activate
+
+pip install --upgrade pip
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+deactivate
+
+Docker :
 Start CPU only container
 
 docker run -it --rm -p 8888:8888 --name tensorflow tensorflow/tensorflow:latest-py3
